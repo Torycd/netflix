@@ -1,10 +1,16 @@
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import HomePageLayout from "./HomePageLayout";
 
 
 function App() {
+  const router = createBrowserRouter([
+    {
+      path: "/",
+      element: <HomePageLayout/>
+    }
+  ])
   return (
-    <>
-      <h1 className="text-white">Hello</h1>
-    </>
+    <RouterProvider router={router} />
   );
 }
 
