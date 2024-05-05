@@ -1,17 +1,19 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import HomePageLayout from "./HomePageLayout";
-
+import { AuthContextProvider } from "./context/authContext";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: <HomePageLayout/>
-    }
-  ])
-  return (
-    <RouterProvider router={router} />
-  );
+      element: (
+        <AuthContextProvider>
+          <HomePageLayout />
+        </AuthContextProvider>
+      ),
+    },
+  ]);
+  return <RouterProvider router={router} />;
 }
 
 export default App;
