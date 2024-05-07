@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import SignUp from "./pages/SignUp";
 import Account from "./pages/Account";
 import Home from "./pages/Home";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 function App() {
   const router = createBrowserRouter([
@@ -19,7 +20,14 @@ function App() {
         { path: "", element: <Home /> },
         { path: "/login", element: <Login /> },
         { path: "/signup", element: <SignUp /> },
-        { path: "/account", element: <Account /> },
+        {
+          path: "/account",
+          element: (
+            <ProtectedRoute>
+              <Account />
+            </ProtectedRoute>
+          ),
+        },
       ],
     },
   ]);
